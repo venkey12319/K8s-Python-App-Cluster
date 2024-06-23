@@ -1,0 +1,23 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: python-app
+  labels:
+    app: python-app
+    owner: venkat
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: python-app
+  template:
+    metadata:
+      labels:
+        app: python-app
+        owner: venkat
+    spec:
+      containers:
+      - name: python-app
+        image: yourusername/yourapp:latest
+        ports:
+        - containerPort: 80
